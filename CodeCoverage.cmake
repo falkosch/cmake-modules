@@ -117,7 +117,8 @@ find_program( GCOVR_PATH gcovr PATHS ${CMAKE_SOURCE_DIR}/scripts/test)
 find_program( CPPFILT_PATH NAMES c++filt )
 
 if(NOT GCOV_PATH)
-    message(FATAL_ERROR "gcov not found! Aborting...")
+    message("gcov not found! Aborting...")
+    return()
 endif() # NOT GCOV_PATH
 
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(Apple)?[Cc]lang")
