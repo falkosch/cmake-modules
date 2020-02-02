@@ -60,6 +60,7 @@ function(add_catch2_and_reporting_targets)
                 BASE_DIRECTORY "${CMAKE_SOURCE_DIR}"
                 EXECUTABLE ${Catch2Tests_TARGET}
                 EXECUTABLE_ARGS -r compact
+                EXCLUDE "tests\/"
                 DEPENDENCIES ${Catch2Tests_TARGET}
             )
             add_dependencies(${Catch2Tests_NAME} ${CORBETURA_REPORT_TARGET})
