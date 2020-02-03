@@ -1,7 +1,7 @@
-if(SELF_DIRECTORY)
+if(Catch2Tests_DIRECTORY)
     return()
 endif()
-set(SELF_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+set(Catch2Tests_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
 include(CodeCoverage)
 include(CMakeParseArguments)
