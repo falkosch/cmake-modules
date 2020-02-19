@@ -70,7 +70,7 @@ function(add_catch2_and_reporting_targets)
                 COMMENT "Collecting gcov reports of ${Catch2Tests_TARGET}"
                 DEPENDS ${Catch2Tests_TARGET}
                 COMMAND ${CMAKE_COMMAND} -E make_directory gcov
-                COMMAND sh "${SELF_DIRECTORY}/generate-gcov-report.sh"
+                COMMAND sh "${Catch2Tests_DIRECTORY}/generate-gcov-report.sh"
                 BYPRODUCTS gcov/
                 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
             )
