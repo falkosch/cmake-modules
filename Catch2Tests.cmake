@@ -42,7 +42,7 @@ function(add_catch2_and_reporting_targets)
     add_custom_target(${JUNIT_REPORT_TARGET}
         COMMENT "Collecting JUnit reports of ${Catch2Tests_TARGET}"
         DEPENDS ${Catch2Tests_TARGET}
-        COMMAND ${Catch2Tests_TARGET} -d yes -r junit -o "${JUNIT_REPORT_TARGET}.xml"
+        COMMAND ${Catch2Tests_TARGET} -d yes -r junit -o "${JUNIT_REPORT_TARGET}.xml" || (exit 0)
         BYPRODUCTS "${JUNIT_REPORT_TARGET}.xml"
     )
 
@@ -58,8 +58,7 @@ function(add_catch2_and_reporting_targets)
             setup_target_for_coverage_gcovr_xml(
                 NAME ${CORBETURA_REPORT_TARGET}
                 BASE_DIRECTORY "${CMAKE_SOURCE_DIR}"
-                EXECUTABLE ${Catch2Tests_TARGET}
-                EXECUTABLE_ARGS -r compact
+                EXECUTABLE ${Catch2Tests_TARGET} -r compact || (exit 0)
                 EXCLUDE "tests\/"
                 DEPENDENCIES ${Catch2Tests_TARGET}
             )
